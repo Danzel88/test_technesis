@@ -6,8 +6,8 @@ After=network.target
 User=tgbot
 Group=tgbot
 Type=simple
-WorkingDirectory=~/test_technesis
-ExecStart=~/test_technesis/venv/bin/python bot.py
+WorkingDirectory=/home/${USER}/test_technesis
+ExecStart=/home/${USER}/test_technesis/venv/bin/python bot.py
 Restart=always
 
 [Install]
