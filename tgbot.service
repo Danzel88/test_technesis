@@ -1,13 +1,10 @@
-[Unit]
-Description=test_technesis
+Description=Бот для тестового задания
 After=network.target
 
 [Service]
-User=tgbot
-Group=tgbot
 Type=simple
-WorkingDirectory=/home/den/test_technesis
-ExecStart=/home/den/test_technesis/venv/bin/python bot.py
+WorkingDirectory=/home/${USER}/test_technesis
+ExecStart=/home/${USER}/test_technesis/.venv/bin/python bot.py
 Restart=always
 
 [Install]
