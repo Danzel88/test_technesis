@@ -1,13 +1,13 @@
 [Unit]
-Description=Course Bot
+Description=test_technesis
 After=network.target
 
 [Service]
 User=tgbot
 Group=tgbot
 Type=simple
-WorkingDirectory=/opt/tgbot
-ExecStart=/opt/tgbot/venv/bin/python bot.py
+WorkingDirectory=~/test_technesis
+ExecStart=~/test_technesis/venv/bin/python bot.py
 Restart=always
 
 [Install]
