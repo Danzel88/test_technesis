@@ -64,7 +64,7 @@ venv.bak/
 tgbot/databases/*.db
 sender_data/*.json
 tgbot/log/*.log
-data/stickers/
+
 tgbot/log/
 *_cred.json
 prom24.db
