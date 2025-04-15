@@ -45,6 +45,12 @@ async def download_init(message: Message, state: FSMContext):
 @user_router.message(UserState.wait_file)
 async def get_file(message: Message, bot: Bot, state: FSMContext):
     """Получаем файл, пишем в базу и возвращаем значение пользаку"""
+    if message.document is None:
+        await message.answer("Ожидается Excel файл")
+        return
+    elif "openxml" not in message.document.mime_type:
+        await message.answer("Ожидается Excel файл")
+        return
     user_file_id = message.document.file_id
     file_directory = Path(__file__).parent.parent.parent / f"data/{user_file_id[:10]}.xlsx"
     await bot.download(user_file_id, file_directory)
@@ -52,3 +58,5 @@ async def get_file(message: Message, bot: Bot, state: FSMContext):
     table_handler.process_file()
     await message.answer(table_handler.read_file().to_string(index=False), reply_markup=main_kb())
     await state.clear()
+
+
